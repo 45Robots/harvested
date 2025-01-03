@@ -46,7 +46,7 @@ module Harvest
       def retry_rate_limits
         retries = 0
         
-        retry_func = lambda do |e|
+        retry_func = Proc.new do |e|
           if retries < @max_retries
             retries += 1
             true
